@@ -1,8 +1,51 @@
-<resources>
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="operationsCenter">@color/gray_100</item>
+        <item name="operationsCenterText">@color/gray_700</item>
+        <item name="operationsTopAndEnd">@color/green_100</item>
+        <item name="operationsTopAndEndText">@color/green_500</item>
+        <item name="operationsEquals">@color/red_100</item>
+        <item name="operationsEqualsText">@color/red_900</item>
+    </style>
+
+    <style name="Theme.MyApp.Main" parent="AppTheme">
+    </style>
+
+    <style name="Operations"/>
+
+    <style name="Operations.Center" parent="Operations">
+        <item name="android:textColor">?attr/operationsCenterText</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text_32</item>
+        <item name="android:background">@drawable/operations_background_center</item>
+    </style>
+
+    <style name="Operations.Center.Multiplication" parent="Operations.Center">
+        <item name="android:textColor">?attr/operationsTopAndEndText</item>
+        <item name="android:textSize">@dimen/text_24</item>
+        <item name="android:background">@drawable/operations_background_top_end</item>
+    </style>
+
+    <style name="Operations.TopAndEndImage" parent="Operations">
+        <item name="android:background">@drawable/operations_background_top_end</item>
+        <item name="tint">?attr/operationsTopAndEndText</item>
+    </style>
+
+    <style name="Operations.TopAndEndText" parent="Operations">
+        <item name="android:textColor">?attr/operationsTopAndEndText</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text_32</item>
+        <item name="android:background">@drawable/operations_background_top_end</item>
+    </style>
+
+    <style name="Operations.Equals" parent="Operations">
+        <item name="android:textColor">?attr/operationsEqualsText</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text_32</item>
+        <item name="android:background">@drawable/operations_background_equals</item>
     </style>
 
 </resources>
