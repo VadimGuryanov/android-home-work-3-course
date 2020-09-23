@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val toolbar = findViewById<Toolbar>(R.id.my_toolbar)
         setSupportActionBar(toolbar)
-        val (exp, res) = initOperations()
+        initOperations()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -35,15 +35,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initMenuItems(menu: Menu?) {
-        menu?.apply {
-            if (getDefaultNightMode() == MODE_NIGHT_YES) {
-                getItem(0).isVisible = false
-                getItem(1).isVisible = true
-            } else {
-                getItem(0).isVisible = true
-                getItem(1).isVisible = false
-            }
-        }
+//        menu?.apply {
+//            if (getDefaultNightMode() == MODE_NIGHT_YES) {
+//                getItem(0).isVisible = false
+//                getItem(1).isVisible = true
+//            } else {
+//                getItem(0).isVisible = true
+//                getItem(1).isVisible = false
+//            }
+//        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun initOperations(): Pair<String, String> {
+    private fun initOperations() {
         val listener = View.OnClickListener {
             val (expression, result) = when(it) {
                 is TextView -> {
@@ -98,7 +98,6 @@ class MainActivity : AppCompatActivity() {
         tv_clear.setOnClickListener(listener)
         tv_delete.setOnClickListener(listener)
         tv_equals.setOnClickListener(listener)
-        return Pair(exp, res)
     }
 
     private fun setTextViewSize(length: Int, tv: TextView) {

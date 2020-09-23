@@ -38,7 +38,7 @@ object Calculator {
             }
         }
         isApplyNumerical = true
-        return Pair(getExpression(), 0)
+        return Pair(getExpression(), getResult())
     }
 
     private fun applyOperations(operation: String): Pair<String, Number> {
@@ -51,7 +51,7 @@ object Calculator {
             }
         }
         isApplyNumerical = false
-        return Pair(getExpression(), 0)
+        return Pair(getExpression(), getResult())
     }
 
     private fun getExpression(): String {
@@ -75,32 +75,54 @@ object Calculator {
         numbers.add("0")
         operations.clear()
         isApplyNumerical = true
-        return Pair(getExpression(), 0)
+        return Pair(getExpression(), getResult())
     }
 
     private fun applyOneSymbleClear(): Pair<String, Number> {
         if (isApplyNumerical) {
             val value = numbers[numbers.lastIndex]
             numbers[numbers.lastIndex] = value.substring(0, value.length - 1)
+            if (numbers[numbers.lastIndex].isEmpty()) {
+                numbers.removeAt(numbers.lastIndex)
+                isApplyNumerical = false
+            }
+            if (numbers.isEmpty()) numbers.add("0")
         } else {
             operations.removeAt(operations.lastIndex)
+            isApplyNumerical = true
         }
-        return Pair(getExpression(), 0)
+        return Pair(getExpression(), getResult())
     }
 
     private fun applyEquals(): Pair<String, Number> {
-        return Pair(getExpression(), 0)
+        return Pair(getExpression(), getResult())
     }
 
-//    fun getResult(): Number {
-//        if (operations.isNotEmpty()) {
-//            operations.forEachIndexed { index, s ->
-//
-//            }
-//        } else {
-//            return numbers[0].toLong()
-//        }
-//    }
+    private fun getResult(): Number {
+        var result: Number = 0
+        if (operations.isNotEmpty()) {
+            if (numbers.size == 1) return numbers[0].toLong()
+            result = if (isApplyNumerical) {
+                calculate(operations.size)
+            } else {
+                calculate(operations.size - 1)
+            }
+        } else {
+            return numbers[0].toLong()
+        }
+        return result
+    }
+
+    private fun calculate(size: Int): Number {
+        var result: Long = numbers[0].toLong()
+        for (i in 0 until size) {
+            result += when(operations[i]) {
+                "+" -> numbers[i+1].toLong()
+                else -> -numbers[i+1].toLong()
+            }
+        }
+        return result
+    }
 
 //    fun applayPoint(): Pair<String, Number> {
 //        if (isApplyNumerical) {

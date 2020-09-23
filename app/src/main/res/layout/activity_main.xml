@@ -6,13 +6,104 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_expression"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="end|bottom"
+        android:textSize="@dimen/text_48"
+        android:paddingEnd="@dimen/padding_24"
+        android:paddingStart="@dimen/padding_24"
+        android:layout_marginTop="?android:attr/actionBarSize"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:hint="134+132-131"/>
+
+    <TextView
+        android:id="@+id/tv_value"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/value_0"
+        android:textSize="@dimen/text_48"
+        android:gravity="end"
+        android:padding="@dimen/padding_24"
+        android:background="@android:color/transparent"
+        app:layout_constraintVertical_weight="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_expression"
+        app:layout_constraintBottom_toTopOf="@+id/ll_operations"/>
+
+    <LinearLayout
+        android:id="@+id/ll_operations"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintVertical_weight="1.5"
+        app:layout_constraintTop_toBottomOf="@+id/tv_value"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <include layout="@layout/item_operations_line_1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <include layout="@layout/item_operations_line_2"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <include layout="@layout/item_operations_line_3"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <include layout="@layout/item_operations_line_4"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.16">
+
+            <include layout="@layout/item_operations_line_5"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
