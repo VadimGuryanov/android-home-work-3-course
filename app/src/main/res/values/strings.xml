@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">homework</string>
+    <string name="googlepay_button_content_description">Google Pay</string>
+    <string name="buy_with_googlepay_button_content_description">Buy with Google Pay</string>
+    <string name="book_name">Librarian</string>
+    <string name="author">Mikhail Elizarov</string>
+    <string name="description">The Librarian is a novel that won the Russian Booker Prize and sparked scandals and debates in society; a novel about sacred texts - but without the “book dust” of Borges and Eco: books are used here for their direct archetypal purpose - set in metal, they crush weak skullcaps, break fates, call to the fire and invade the fabric of the universe.</string>
+    <string name="cost">$46.00</string>
+    <string name="price">46.00</string>
 </resources>

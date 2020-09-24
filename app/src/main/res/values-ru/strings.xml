@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Домашнее задание</string>
+    <string name="googlepay_button_content_description">Google Pay</string>
+    <string name="buy_with_googlepay_button_content_description">Оплатить через Google Pay</string>
+    <string name="book_name">Библиотекарь</string>
+    <string name="author">Михаил Елизаров</string>
+    <string name="description">“Библиотекарь” – роман, удостоенный премии “Русский Букер” и породивший скандалы и дискуссии в обществе; роман о священных текстах – но без “книжной пыли” Борхеса и Эко: книги здесь используются по прямому архетипическому назначению – оправленные в металл, они сокрушают слабенькие черепные коробки, ломают судьбы, зовут на костёр и вторгаются в ткань мироздания.</string>
+    <string name="cost">369 ₽</string>
+    <string name="price">369.0</string>
+</resources>
