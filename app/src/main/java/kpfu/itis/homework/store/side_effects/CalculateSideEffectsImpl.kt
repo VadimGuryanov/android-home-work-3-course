@@ -15,15 +15,13 @@ class CalculateSideEffectsImpl(
     private val calculateApi: CalculateApi
 ): CalculateSideEffects {
 
-    private val queueAction = mutableListOf<Pair<Int, Int>>()
-
     override fun invoke(
         actions: Observable<CalculateAction>,
         state: StateAccessor<CalculateState>
     ): Observable<out CalculateAction> {
         return actions.filter { it is WroteOne || it is WroteTwo || it is WroteResult }
             .switchMap { action ->
-                    getResult(action)
+                    getResult(action, state().queueAction)
                         .map<CalculateAction> { CalculateAction.CalculateSuccess(it) }
                         .onErrorReturnItem(CalculateAction.CalculateError)
                         .toObservable()
@@ -31,7 +29,12 @@ class CalculateSideEffectsImpl(
             }
     }
 
-    private fun getResult(action: CalculateAction): Single<Triple<Int, Int, Int>> {
+    private fun getResult(action: CalculateAction, queueAction: MutableList<Pair<Int, Int>>): Single<Triple<Int, Int, Int>> {
+        if (queueAction.size == 3) {
+            val last = queueAction.last()
+            queueAction.clear()
+            queueAction.add(last)
+        }
         return when(action) {
             is WroteOne -> {
                 if (queueAction.isEmpty()) {
