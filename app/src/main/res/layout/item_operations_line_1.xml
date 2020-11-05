@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_clear"
+        style="@style/Operations.TopAndEndText"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="@string/value_clear"
+        android:layout_weight="1"
+        android:layout_marginStart="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginEnd="@dimen/margin_4"/>
+
+    <ImageView
+        android:id="@+id/tv_delete"
+        style="@style/Operations.TopAndEndImage"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/ic_delete"
+        android:padding="@dimen/padding_16"
+        android:layout_marginStart="@dimen/margin_4"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginEnd="@dimen/margin_4"/>
+
+    <TextView
+        android:id="@+id/tv_percent"
+        style="@style/Operations.TopAndEndText"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/value_percent"
+        android:layout_marginStart="@dimen/margin_4"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginEnd="@dimen/margin_4" />
+
+    <TextView
+        android:id="@+id/tv_obelus"
+        style="@style/Operations.TopAndEndText"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/value_obelus"
+        android:layout_marginStart="@dimen/margin_4"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginEnd="@dimen/margin_16"/>
+
+</merge>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="Operations">
+        <attr name="operationsCenter" format="color"/>
+        <attr name="operationsTopAndEnd" format="color"/>
+        <attr name="operationsEquals" format="color"/>
+        <attr name="operationsCenterText" format="color"/>
+        <attr name="operationsTopAndEndText" format="color"/>
+        <attr name="operationsEqualsText" format="color"/>
+    </declare-styleable>
+    
+</resources>

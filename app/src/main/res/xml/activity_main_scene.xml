@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/tools">
+
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:id="@+id/tv_value"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <CustomAttribute
+                motion:attributeName="textSize"
+                motion:customDimension="48sp"
+                app:attributeName="textSize" />
+
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/v_separator"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_16"
+            android:background="@color/red_100"
+            app:layout_constraintTop_toBottomOf="@id/tv_value" />
+
+        <Constraint
+            android:id="@+id/item_operations_line_extra"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/ll_operations"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_separator">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <include layout="@layout/item_operations_line_extra" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <include layout="@layout/item_operations_line_extra" />
+
+            </LinearLayout>
+
+
+        </Constraint>
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@+id/tv_value"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <CustomAttribute
+                motion:attributeName="textSize"
+                motion:customDimension="20sp"
+                app:attributeName="textSize" />
+
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/v_separator"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_16"
+            android:background="@color/red_100"
+            app:layout_constraintTop_toBottomOf="@id/tv_value" />
+
+        <Constraint
+            android:id="@+id/item_operations_line_extra"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/ll_operations"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_separator">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <include layout="@layout/item_operations_line_extra" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <include layout="@layout/item_operations_line_extra" />
+
+            </LinearLayout>
+
+        </Constraint>
+
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@id/start"
+        app:duration="300">
+
+        <OnSwipe
+            app:dragDirection="dragUp"
+            app:onTouchUp="autoComplete"
+            app:touchAnchorId="@id/v_separator"
+            app:touchAnchorSide="middle"
+            app:touchRegionId="@id/v_separator" />
+    </Transition>
+
+    <Transition
+        app:constraintSetEnd="@id/start"
+        app:constraintSetStart="@id/end"
+        app:duration="300">
+
+        <OnSwipe
+            app:dragDirection="dragDown"
+            app:onTouchUp="autoComplete"
+            app:touchAnchorId="@id/v_separator"
+            app:touchAnchorSide="middle"
+            app:touchRegionId="@id/v_separator" />
+    </Transition>
+
+</MotionScene>
